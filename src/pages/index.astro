@@ -5,6 +5,27 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
 import { Schema } from 'astro:schema';
+import { Code2, Zap, Layers } from "lucide-react";
+const values = [
+  {
+    icon: Code2,
+    title: "Building with Purpose",
+    description:
+      "I'm a junior full-stack developer focused on clean architecture, performance, and long-term scalability. I build projects end-to-end to understand systems deeply not just to make them work, but to make them last.",
+  },
+  {
+    icon: Zap,
+    title: "Learning by Shipping",
+    description:
+      "I don't just follow tutorials I build real projects. From UI design to backend logic and deployment, I constantly challenge myself to turn ideas into working products.",
+  },
+  {
+    icon: Layers,
+    title: "Growing into Senior Level Thinking",
+    description:
+      "My goal is not just to write code, but to think like an engineer. I study system design, security, and software architecture to grow beyond junior level step by step, project by project.Leveraging cutting-edge technologies to build reliable, future-proof web applications.",
+  },
+];
 ---
 
 <!doctype html>
@@ -26,30 +47,47 @@ import { Schema } from 'astro:schema';
 								Junior full-stack developer eager to learn and build modern web applications. Focused on writing clean code and continuously improving my skills in React, TypeScript, and backend development.
      						</p>
 							<div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-							<a class="btn btn-ghost bg-accent border border-accent py-7 p-8 text-1xl" href="/projects">
+							<a class="btn btn-ghost bg-transparent border border-accent text-accent py-7 p-8 text-1xl hover:bg-accent hover:text-black transition-all duration-200" href="/projects">
 								View Projects
 							</a>
 
-							<a class="btn btn-ghost bg-transparent border border-accent py-7 p-8 text-1xl" href="/contacts">
+							<a class="btn btn-ghost bg-transparent border border-accent text-accent py-7 p-8 text-1xl hover:bg-accent hover:text-black transition-all duration-200" href="/contacts">
 								Get in Touch
 							</a>
-</div>
+					</div>
+    			</div>
+  			</div>
+		</div>
+
+		<section class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      {values.map((v) => (
+        <div class="relative group">
+          <!-- DaisyUI Card -->
+          <div class="card bg-[#111111] border border-white/10 shadow-sm h-full relative rounded-2xl border border-0.1 border-black hover:border-accent transition-all duration-200">
+            <div class="card-body">
+              <div class="w-14 h-14 rounded-xl bg-[#e10600]/10 flex items-center justify-center mb-4">
+                <v.icon className="w-7 h-7 text-[#e10600]" />
+              </div>
+
+              <h3 class="card-title text-2xl">{v.title}</h3>
+              <p class="text-white/70 leading-relaxed">{v.description}</p>
+
+              <!-- Optional Actions -->
+              <!--
+              <div class="card-actions justify-end mt-4">
+                <a class="btn btn-ghost text-[#e10600]">Learn more</a>
+              </div>
+              -->
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
-</div>
+</section>
 
-			
-			<div class="hero min-h-screen bg-base-100">
-  			<div class="hero-content text-center">
-    		<div class="max-w-5xl">
-			<small class="text-accent">&lt;hello world /&gt;</small>
-				<h1 class="text-7xl font-bold">
-				Building <span class="text-accent">Digital Experiences</span> with Clean Code
-				</h1> 
-			<p class="max-w-4xl">
-				Junior full-stack developer eager to learn and build modern web applications. Focused on writing clean code and continuously improving my skills in React, TypeScript, and backend development.
-			</p>
-		</div>
 		</main>
 		<Footer />
 	</body>
