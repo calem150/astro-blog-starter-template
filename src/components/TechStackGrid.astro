@@ -1,0 +1,73 @@
+---
+const techStack = {
+  "Frontend": [
+    { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+    { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+    { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+    { name: "Astro", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg" },
+  ],
+  "Backend": [
+    { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+    { name: "Express", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+    { name: "Hono", logo: "https://github.com/devicons/devicon/tree/v2.17.0/icons/hono/hono-original.svg" },
+    { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+    { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  ],
+  "Tools & DevOps": [
+    { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+    { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+    { name: "Cloudflare", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg" },
+    { name: "Bun", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bun/bun-original.svg" },
+    { name: "Arch Linux", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/archlinux/archlinux-original.svg" },
+  ],
+};
+---
+
+<section class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        Tech <span class="text-accent">Stack</span>
+      </h2>
+      <p class="text-base-content/70">
+        Technologies I work with and continue to learn
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {Object.entries(techStack).map(([category, technologies]) => (
+        <div class="card bg-[#111111] border border-transparent hover:border-accent">
+          <div class="card-body">
+
+            <h3 class="card-title text-accent mb-4">
+              {category}
+            </h3>
+
+            <div class="space-y-4">
+              {technologies.map((tech) => (
+                <div class="flex items-center gap-4 group">
+                  <div class="w-10 h-10 rounded-lg flex items-center justify-center">
+                    <img
+                      src={tech.logo}
+                      alt={tech.name}
+                      class="w-6 h-6 object-contain bg-[#3a3a3a] opacity-70 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                  <span class="font-medium group-hover:text-accent transition-colors">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
