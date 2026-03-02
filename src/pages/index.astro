@@ -1,8 +1,10 @@
 ---
+import style from '../styles/global.css';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
+import { Schema } from 'astro:schema';
 ---
 
 <!doctype html>
@@ -13,37 +15,41 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
+			<div class="hero bg-base-200 min-h-[85vh] pt-0">
+ 				<div class="hero-content text-center">
+   					<div class="max-w-5xl px-4">
+      					<small  class="text-accent">&lt;hello world /&gt;</small>
+	  						<h1 class="text-7xl font-bold">
+								Building <span class="text-accent margin-auto">Digital Experiences</span> with Clean Code
+							</h1>			
+      						<p class="py-5 text-center text-lg max-w-5xl">
+								Junior full-stack developer eager to learn and build modern web applications. Focused on writing clean code and continuously improving my skills in React, TypeScript, and backend development.
+     						</p>
+							<div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+							<a class="btn btn-ghost bg-accent border border-accent py-7 p-8 text-1xl" href="/projects">
+								View Projects
+							</a>
+
+							<a class="btn btn-ghost bg-transparent border border-accent py-7 p-8 text-1xl" href="/contacts">
+								Get in Touch
+							</a>
+</div>
+    </div>
+  </div>
+</div>
+
+			
+			<div class="hero min-h-screen bg-base-100">
+  			<div class="hero-content text-center">
+    		<div class="max-w-5xl">
+			<small class="text-accent">&lt;hello world /&gt;</small>
+				<h1 class="text-7xl font-bold">
+				Building <span class="text-accent">Digital Experiences</span> with Clean Code
+				</h1> 
+			<p class="max-w-4xl">
+				Junior full-stack developer eager to learn and build modern web applications. Focused on writing clean code and continuously improving my skills in React, TypeScript, and backend development.
 			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+		</div>
 		</main>
 		<Footer />
 	</body>
