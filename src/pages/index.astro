@@ -3,26 +3,26 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
-import { Code2, Zap, Layers } from "lucide-react";
+import { FolderSync, ArrowsUpFromLine, Braces } from "lucide-react";
 import TechStackGrid from '../components/TechStackGrid.astro';
 const values = [
   {
-    icon: Code2,
+    icon: FolderSync,
     title: "Building with Purpose",
     description:
-      "I'm a junior full-stack developer focused on clean architecture, performance, and long-term scalability. I build projects end-to-end to understand systems deeply not just to make them work, but to make them last.",
+      "I focus on clean architecture and performance. I build my projects from start to finish because I want to understand the whole system. My goal is to make applications that don't just work but are also easy to maintain in the long run.",
   },
   {
-    icon: Zap,
+    icon: ArrowsUpFromLine,
     title: "Learning by Shipping",
     description:
-      "I don't just follow tutorials I build real projects. From UI design to backend logic and deployment, I constantly challenge myself to turn ideas into working products.",
+      "I don't just watch tutorials. I build real projects instead. I handle everything from the UI design to the backend logic and deployment. I enjoy the challenge of turning a simple idea into a working product.",
   },
   {
-    icon: Layers,
-    title: "Growing into Senior Level Thinking",
+    icon: Braces,
+    title: "Senior-Level Thinking",
     description:
-      "My goal is not just to write code, but to think like an engineer. I study system design, security, and software architecture to grow beyond junior level step by step, project by project.Leveraging cutting-edge technologies to build reliable, future-proof web applications.",
+      "My goal is to grow beyond the junior level. To do this, I study system design, security, and software architecture. I want to solve problems like an engineer and build reliable software, one project at a time.",
   },
 ];
 ---
@@ -40,19 +40,19 @@ const values = [
 			    <div class="hero bg-base-200 min-h-[85vh] pt-0">
  				    <div class="hero-content text-center">
    					<div class="max-w-5xl px-4">
-      					<small  class="text-accent">&lt;hello world /&gt;</small>
+      					<small  class="text-accent">print("Hello, World!")</small>
 	  						<h1 class="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight text-center">
 								Building <span class="text-accent">Digital Experiences</span> with Clean Code
 							  </h1>			
       						<p class="py-5 text-center text-lg max-w-5xl">
-								Junior full-stack developer eager to learn and build modern web applications. Focused on writing clean code and continuously improving my skills in React, TypeScript, and backend development.
+								I'm a junior full-stack developer. I love building modern web applications and writing clean code. Right now, I'am focusing on React, TypeScript, and backend development to improve my skills every day.
      						</p>
 							  <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
 							  <a class="btn btn-ghost bg-transparent border border-accent text-accent py-7 p-8 text-1xl hover:bg-accent hover:text-black transition-all duration-200" href="/projects">
 								View Projects
 							  </a>
 							  <a class="btn btn-ghost bg-transparent border border-accent text-accent py-7 p-8 text-1xl hover:bg-accent hover:text-black transition-all duration-200" href="/contacts">
-							  	Get in Touch
+							  	Get In Touch
 							  </a>
 					  </div>
     			  </div>
@@ -73,14 +73,9 @@ const values = [
                   </div>
                     <h3 class="card-title text-2xl">{v.title}</h3>
                     <p class="text-white/70 leading-relaxed">{v.description}</p>
-
-                     <!-- Optional Actions -->
-                    <div class="card-actions justify-end mt-4">
-                    <a class="btn btn-ghost text-[#e10600]">Learn more</a>
                   </div>
                 </div>
               </div>
-            </div>
             ))}
           </div>
         </div>

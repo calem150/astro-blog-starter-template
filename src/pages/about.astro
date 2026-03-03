@@ -2,24 +2,24 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
-import { Code2, Zap, Layers } from "lucide-react";
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Waypoints, Zap, FileBracesCorner } from "lucide-react";
 import TechStackGrid from '../components/TechStackGrid.astro';
 const values = [
   {
-    icon: Code2,
-    title: "What I'm Learning Right Now",
+    icon: Waypoints,
+    title: "Portfolio Website",
     description:
-      "I'm currently focusing on TypeScript, React, Astro, and Node-based backends. I'm learning how to structure projects properly, connect APIs, and build applications that are reliable and maintainable.",
+      "This website is built with Astro, DaisyUI, and TypeScript, with a strong focus on responsive design, clean structure, and a consistent component system.",
   },
   {
     icon: Zap,
     title: "What I'm Working Towards",
     description:
-      "My goal is to become a well-rounded full-stack developer who can design and build applications from idea to deployment not just making things work, but building them cleanly and sustainably.",
+      "I want to become a well-rounded full-stack developer. I aim to design and build applications from the initial idea all the way to deployment. I don't just want things to function. I want to build them cleanly and sustainably.",
   },
   {
-    icon: Layers,
+    icon: FileBracesCorner,
     title: "How I Think About Code",
     description:
       "For me, coding is about clarity over complexity. Readable structure, simple solutions, and steady improvement matter more than quick fixes.",
@@ -38,28 +38,16 @@ const values = [
 			<div class="hero bg-base-200 min-h-[85vh] pt-0">
  				<div class="hero-content text-center">
    					<div class="max-w-5xl px-4">
-      					<small  class="text-accent">&lt;Calem Betz /&gt;</small>
+      					<small  class="text-accent">Console.WriteLine("Hello, World!");</small>
 	  						<h1 class="text-7xl font-bold">
 								Who <span class="text-accent margin-auto">I Am</span>
 							</h1>			
       						<p class="py-5 text-center text-lg max-w-5xl">
-								It started with a simple curiosity about what actually happens “under the hood” of a website. Over time, that curiosity turned into a serious commitment to understanding how modern full-stack applications are built not just to make them work, but to build them on a clean and reliable foundation.
+								It started with a simple curiosity about what actually happens <span class="text-accent margin-auto">“under the hood”</span> of a website. Over time, that curiosity turned into a serious commitment. I want to understand how modern full-stack applications are built. My goal is to build them on a clean and reliable foundation, not just to make them work.
      						</p>
 							    <p class="py-5 text-center text-lg max-w-5xl">
-								I don't try to chase every new trend. Instead, I focus on fundamentals, understanding how data moves through a system, how frontend and backend connect, and how structure affects long-term maintainability.
+								I don't try to chase every new trend. Instead, I focus on the fundamentals. I want to understand how data moves through a system and how the frontend and backend connect. For me, development is about steady improvement. Every project helps me think more clearly and structure my code better.
      						</p>
-							    <p class="py-5 text-center text-lg max-w-5xl">
-								For me, development is about steady improvement. Every project helps me think more clearly and structure code better. My goal is to become a well-rounded full-stack developer who can design and build applications from idea to deployment not just making things work, but building them cleanly and sustainably..
-     						</p>
-							<div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-							  <a class="btn btn-ghost bg-transparent border border-accent text-accent py-7 p-8 text-1xl hover:bg-accent hover:text-black transition-all duration-200" href="/projects">
-								  View Projects
-							  </a>
-
-							  <a class="btn btn-ghost bg-transparent border border-accent text-accent py-7 p-8 text-1xl hover:bg-accent hover:text-black transition-all duration-200" href="/contacts">
-								  Get in Touch
-							  </a>
-					    </div>
     			  </div>
   			  </div>
 		    </div>
@@ -79,7 +67,6 @@ const values = [
                   <h3 class="card-title text-2xl">{v.title}</h3>
                   <p class="text-white/70 leading-relaxed">{v.description}</p>
                   <div class="card-actions justify-end mt-4">
-                    <a class="btn btn-ghost text-[#e10600]">Learn more</a>
                   </div>
                 </div>
               </div>

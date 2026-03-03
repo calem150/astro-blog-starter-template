@@ -3,14 +3,23 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
-import { Code2, Zap, Layers } from "lucide-react";
+import { Code2, Zap, Braces } from "lucide-react";
 import TechStackGrid from '../components/TechStackGrid.astro';
+const featuredProject = {
+  title: "Task Manager App",
+  description: "A full-stack application for managing tasks and projects.",
+  problem: "Users needed a simple way to organize tasks and track progress without the complexity of enterprise tools.",
+  solution: "Built a task management app with user authentication, real-time updates, and a responsive UI that works seamlessly across devices.",
+  techStack: ["React", "Node.js", "Express", "PostgreSQL"],
+  demoLink: "#",
+  githubLink: "#",
+};
 const values = [
   {
     icon: Code2,
-    title: "Building with Purpose",
+    title: "Portfolio Website",
     description:
-      "I'm a junior full-stack developer focused on clean architecture, performance, and long-term scalability. I build projects end-to-end to understand systems deeply not just to make them work, but to make them last.",
+      "This website. Built with Astro, DaisyUI, and TypeScript. Focus: responsive design, clean structure, component system.",
   },
   {
     icon: Zap,
@@ -19,10 +28,50 @@ const values = [
       "I don't just follow tutorials I build real projects. From UI design to backend logic and deployment, I constantly challenge myself to turn ideas into working products.",
   },
   {
-    icon: Layers,
+    icon: Braces,
     title: "Growing into Senior Level Thinking",
     description:
       "My goal is not just to write code, but to think like an engineer. I study system design, security, and software architecture to grow beyond junior level step by step, project by project.Leveraging cutting-edge technologies to build reliable, future-proof web applications.",
+  },
+];
+const otherProjects = [
+  {
+    title: "Weather Dashboard",
+    description:
+      "Weather app showing current conditions and forecasts.",
+    tags: ["Astro", "API", "Tailwind"],
+    githubLink: "#",
+  },
+  {
+    title: "Blog Platform",
+    description:
+      "Simple blog platform with markdown support.",
+    tags: ["Next.js", "TypeScript", "MongoDB"],
+    githubLink: "#",
+  },
+  {
+    title: "E-Commerce Demo",
+    description:
+      "Basic e-commerce site with product listings.",
+    tags: ["React", "Node.js", "Stripe"],
+    githubLink: "#",
+  },
+];
+
+const learnings = [
+  {
+    category: "Architecture & Planning",
+    title: "Structure Early, Save Later",
+    description:
+      "Starting with a clear folder structure and component hierarchy prevents technical debt.",
+    icon: "🏗️",
+  },
+  {
+    category: "Development Philosophy",
+    title: "Simplicity Over Cleverness",
+    description:
+      "Clean, readable code beats clever one-liners.",
+    icon: "✨",
   },
 ];
 ---
@@ -35,56 +84,139 @@ const values = [
 	<body>
 		<Header />
 		<main>
-      <section class="px-4 sm:px-6 py-16 md:py-24">
-        <div class="mx-auto w-full max-w-6xl">
-			    <div class="hero bg-base-200 min-h-[85vh] pt-0">
- 				    <div class="hero-content text-center">
-   					<div class="max-w-5xl px-4">
-      					<small  class="text-accent">&lt;hello world /&gt;</small>
-	  						<h1 class="ext-3xl sm:text-4xl md:text-6xl font-bold leading-tight text-center">
-								Building <span class="text-accent">Digital Experiences</span> with Clean Code
-							  </h1>			
-      						<p class="py-5 text-center text-lg max-w-5xl">
-								Junior full-stack developer eager to learn and build modern web applications. Focused on writing clean code and continuously improving my skills in React, TypeScript, and backend development.
-     						</p>
-							  <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-							  <a class="btn btn-ghost bg-transparent border border-accent text-accent py-7 p-8 text-1xl hover:bg-accent hover:text-black transition-all duration-200" href="/projects">
-								View Projects
-							  </a>
-							  <a class="btn btn-ghost bg-transparent border border-accent text-accent py-7 p-8 text-1xl hover:bg-accent hover:text-black transition-all duration-200" href="/contacts">
-							  	Get in Touch
-							  </a>
-					  </div>
-    			  </div>
-  			  </div>
-		    </div>
-      </section>
+<section class="min-h-screen pt-32 pb-24 px-4 sm:px-6">
+  <div class="max-w-6xl mx-auto">
 
-		  <section class="py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            {values.map((v) => (
-            <div class="relative group">
-                <!-- DaisyUI Card -->
-              <div class="card bg-[#111111] border border-white/10 shadow-sm h-full relative rounded-2xl border border-0.1 border-black hover:border-accent transition-all duration-200">
-                <div class="card-body">
-                  <div class="w-14 h-14 rounded-xl bg-[#e10600]/10 flex items-center justify-center mb-4">
-                    <v.icon className="w-7 h-7 text-[#e10600]" />
-                  </div>
-                    <h3 class="card-title text-2xl">{v.title}</h3>
-                    <p class="text-white/70 leading-relaxed">{v.description}</p>
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">
+        Selected <span class="text-accent">Projects</span>
+      </h1>
+      <p class="text-white/70 max-w-2xl mx-auto text-lg">
+        A selection of projects that shaped my growth as a full-stack developer.
+      </p>
+    </div>
 
-                     <!-- Optional Actions -->
-                    <div class="card-actions justify-end mt-4">
-                    <a class="btn btn-ghost text-[#e10600]">Learn more</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <!-- Featured Project -->
+    <div class="bg-[#111111] border border-white/5 rounded-2xl p-6 sm:p-8 md:p-12 mb-20">
+      <h2 class="text-3xl font-bold mb-3">{featuredProject.title}</h2>
+      <p class="text-white/70 mb-8">{featuredProject.description}</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h3 class="text-accent font-bold mb-3 text-sm uppercase tracking-wider">
+            Problem
+          </h3>
+          <p class="text-white/70 text-sm leading-relaxed">
+            {featuredProject.problem}
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-accent font-bold mb-3 text-sm uppercase tracking-wider">
+            Solution
+          </h3>
+          <p class="text-white/70 text-sm leading-relaxed">
+            {featuredProject.solution}
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-accent font-bold mb-3 text-sm uppercase tracking-wider">
+            Tech Stack
+          </h3>
+
+          <div class="flex flex-wrap gap-2">
+            {featuredProject.techStack.map((tech) => (
+              <span class="px-3 py-1.5 bg-[#1a1a1a] border border-white/10 rounded-md text-sm">
+                {tech}
+              </span>
             ))}
           </div>
         </div>
-      </section>
+      </div>
+
+      <div class="flex flex-wrap gap-4">
+        <a
+          href={featuredProject.demoLink}
+          class="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-red-700 text-white rounded-lg font-medium transition-colors"
+        >
+          Live Demo
+        </a>
+
+        <a
+          href={featuredProject.githubLink}
+          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/10 hover:border-accent/50 rounded-lg font-medium transition-colors"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Other Projects -->
+    <h2 class="text-2xl font-bold mb-8">Other Projects</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
+      {otherProjects.map((project) => (
+        <div class="bg-[#111111] border border-white/5 rounded-xl p-6 hover:border-accent/30 transition-colors">
+          <h3 class="text-xl font-bold mb-3">{project.title}</h3>
+          <p class="text-white/70 text-sm mb-4 leading-relaxed">
+            {project.description}
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-4">
+            {project.tags.map((tag) => (
+              <span class="px-3 py-1 bg-[#1a1a1a] border border-white/10 rounded-md text-xs">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <a
+            href={project.githubLink}
+            class="inline-flex items-center gap-2 text-accent hover:text-red-600 font-medium text-sm transition-colors"
+          >
+            Full Code
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- Continuous Improvement -->
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+      Continuous <span class="text-accent">Improvement</span>
+    </h2>
+
+    <p class="text-white/70 mb-8">
+      Real insights from building projects and refining systems.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {learnings.map((learning) => (
+        <div class="bg-[#111111] border border-white/5 rounded-xl p-6 hover:border-accent/30 transition-colors">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">{learning.icon}</div>
+
+            <div>
+              <div class="text-accent text-xs font-bold uppercase tracking-wider mb-2">
+                {learning.category}
+              </div>
+
+              <h3 class="font-bold text-lg mb-2">
+                {learning.title}
+              </h3>
+
+              <p class="text-white/70 text-sm leading-relaxed">
+                {learning.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
       <TechStackGrid />
 		</main>
 		  <Footer />
