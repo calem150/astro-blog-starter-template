@@ -1,6 +1,6 @@
 {
-	"name": "astro-blog-starter-template",
-	"description": "Build a personal website, blog, or portfolio with Astro.",
+	"name": "calems_portfolio",
+	"description": "Calems portfolio with Astro.",
 	"cloudflare": {
 		"label": "Astro Framework Starter",
 		"products": [
@@ -31,6 +31,7 @@
 	"devDependencies": {
 		"@iconify-json/logos": "^1.2.10",
 		"astro-icon": "^1.1.5",
+		"prettier": "^3.8.1",
 		"wrangler": "^4.69.0"
 	},
 	"engines": {
