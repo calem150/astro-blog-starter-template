@@ -29,6 +29,8 @@
 		"typescript": "5.9.3"
 	},
 	"devDependencies": {
+		"@iconify-json/logos": "^1.2.10",
+		"astro-icon": "^1.1.5",
 		"wrangler": "^4.69.0"
 	},
 	"engines": {
