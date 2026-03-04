@@ -7,19 +7,30 @@ const { title, description } = Astro.props;
 ---
 
 <MainLayout title={title} description={description}>
-  <Hero eyebrow='console.log("Template Hero")' subtitle="This is a reusable page template.">
+  <Hero
+    eyebrow='console.log("Template Hero")'
+    subtitle="This is a reusable page template."
+  >
     <span slot="title">
       Page <span class="text-accent">Template</span>
     </span>
   </Hero>
 
-  <Section title="Cards Section" subtitle="Cards rendered from the page." align="center">
+  <Section
+    title="Cards Section"
+    subtitle="Cards rendered from the page."
+    align="center"
+  >
     <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
       <slot name="cards" />
     </div>
   </Section>
 
-  <Section title="Projects" subtitle="Project cards rendered from the page." align="center">
+  <Section
+    title="Projects"
+    subtitle="Project cards rendered from the page."
+    align="center"
+  >
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
       <slot name="projects" />
     </div>

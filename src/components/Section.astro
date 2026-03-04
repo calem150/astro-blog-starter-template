@@ -7,7 +7,13 @@ interface Props {
   size?: "sm" | "md" | "lg";
 }
 
-const { title, subtitle, eyebrow, align = "left", size = "md" } = Astro.props as Props;
+const {
+  title,
+  subtitle,
+  eyebrow,
+  align = "left",
+  size = "md",
+} = Astro.props as Props;
 
 const alignClasses = align === "center" ? "text-center" : "text-left";
 const subtitleAlign = align === "center" ? "mx-auto" : "";
@@ -41,7 +47,11 @@ const s = sizeMap[size];
 
     {
       subtitle && (
-        <p class={`mt-4 max-w-2xl text-white/70 ${subtitleAlign} ${s.subtitle}`}>{subtitle}</p>
+        <p
+          class={`mt-4 max-w-2xl text-white/70 ${subtitleAlign} ${s.subtitle}`}
+        >
+          {subtitle}
+        </p>
       )
     }
 

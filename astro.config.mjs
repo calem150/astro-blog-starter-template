@@ -9,16 +9,15 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-	  vite: {
-		plugins: [tailwindcss()],
+  vite: {
+    plugins: [tailwindcss()],
   },
 
-	site: "https://example.com",
-	integrations: [mdx(), sitemap(), react(), icon()],
-	adapter: cloudflare({
-		platformProxy: {
-			enabled: true,
-		},
-	}),
+  site: "https://example.com",
+  integrations: [mdx(), sitemap(), react(), icon()],
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true,
+    },
+  }),
 });
-

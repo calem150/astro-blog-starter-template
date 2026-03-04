@@ -33,13 +33,15 @@ const values = [
 <MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <!-- HERO -->
   <Section eyebrow='print("Hello World")' align="center" size="lg">
-    <h1 class="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl lg:text-6xl">
+    <h1
+      class="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl lg:text-6xl"
+    >
       Building <span class="text-accent">Digital Experiences</span> with Clean Code
     </h1>
 
     <p class="mx-auto mt-6 max-w-2xl text-base text-white/70 md:text-lg">
-      I am a junior full stack developer who enjoys building modern web applications and writing
-      clean code.
+      I am a junior full stack developer who enjoys building modern web
+      applications and writing clean code.
     </p>
 
     <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
@@ -52,7 +54,9 @@ const values = [
   <!-- VALUES -->
   <Section align="center" size="md">
     <div class="text-center">
-      <h1 class="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl lg:text-6xl">
+      <h1
+        class="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl lg:text-6xl"
+      >
         How I <span class="text-accent">Build </span>Software
       </h1>
       <p class="mx-auto mt-6 max-w-2xl text-base text-white/70 md:text-lg">
@@ -62,7 +66,11 @@ const values = [
     </div>
 
     <Grid cols={3}>
-      {values.map((v) => <Card icon={v.icon} title={v.title} description={v.description} />)}
+      {
+        values.map((v) => (
+          <Card icon={v.icon} title={v.title} description={v.description} />
+        ))
+      }
     </Grid>
   </Section>
 
