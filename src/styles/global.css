@@ -4,11 +4,11 @@
   name: "black";
   default: true;
   prefersdark: true;
-  --color-base-100: oklch(0.0532 0.02 29.23);
-  --color-base-200: oklch(0.0532 0.03 29.23);
-  --color-base-300: oklch(0.0532 0.04 29.23);
+  --color-base-100: oklch(0.05 0.02 29);
+  --color-base-200: oklch(0.08 0.02 29);
+  --color-base-300: oklch(0.12 0.02 29);
   --color-base-content: oklch(1 0.0218 29.23);
-  --color-primary: oklch(55% 0.3 240);
+  --color-primary: oklch(55% 0.22 240);
   --color-primary-content: oklch(98% 0.01 240);
   --color-secondary-content: oklch(98% 0.01 200);
   --color-accent: oklch(0.5725 0.2332 29.48);
@@ -42,4 +42,15 @@
 }
 html {
   scroll-behavior: smooth;
+}
+::selection {
+  background: oklch(0.5725 0.2332 29.48);
+  color: black;
+}
+body {
+  background-color: oklch(0.05 0.02 29);
+
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 0, 100, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(0, 150, 255, 0.08), transparent 40%);
 }
