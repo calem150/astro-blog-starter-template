@@ -1,0 +1,89 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import Card from "../components/Card.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+import { FolderSync, ArrowsUpFromLine, Braces } from "lucide-react";
+
+const values = [
+  {
+    icon: FolderSync,
+    title: "Architecture",
+    description: "Clean structure and scalable folder organization.",
+  },
+  {
+    icon: ArrowsUpFromLine,
+    title: "Shipping",
+    description: "Building real projects instead of watching tutorials.",
+  },
+  {
+    icon: Braces,
+    title: "Engineering",
+    description: "Learning system design and software architecture.",
+  },
+];
+
+const projects = [
+  {
+    title: "Task Manager",
+    description: "Full stack task management app.",
+    tech: ["React", "Node", "Postgres"],
+    demo: "#",
+    github: "#",
+  },
+  {
+    title: "Weather App",
+    description: "Weather dashboard with external API.",
+    tech: ["Astro", "Tailwind"],
+    demo: "#",
+    github: "#",
+  },
+  {
+    title: "Portfolio",
+    description: "Developer portfolio built with Astro.",
+    tech: ["Astro", "DaisyUI"],
+    demo: "#",
+    github: "#",
+  },
+];
+---
+
+<MainLayout title="UI Review" description="Component playground">
+  <!-- HERO TEST -->
+  <Hero
+    eyebrow='console.log("Hero Component")'
+    subtitle="This section demonstrates the reusable Hero component."
+    primaryHref="/projects"
+    primaryText="View Projects"
+    secondaryHref="/contacts"
+    secondaryText="Contact"
+  >
+    <span slot="title">
+      Hero <span class="text-accent">Component</span> Demo
+    </span>
+  </Hero>
+
+  <!-- SECTION + CARD TEST -->
+  <Section
+    title="Card Component"
+    subtitle="Reusable card layout used for values, features or services."
+    align="center"
+  >
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+      {values.map((v) => <Card {...v} />)}
+    </div>
+  </Section>
+
+  <!-- PROJECT CARD TEST -->
+  <Section
+    title="ProjectCard Component"
+    subtitle="Specialized card for portfolio projects."
+    align="center"
+  >
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+      {projects.map((p) => <ProjectCard {...p} />)}
+    </div>
+  </Section>
+</MainLayout>

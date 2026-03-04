@@ -1,75 +1,70 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Section from "../components/Section.astro";
+import Card from "../components/Card.astro";
+import Grid from "../components/Grid.astro";
+import Button from "../components/Button.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { FolderSync, ArrowsUpFromLine, Braces } from "lucide-react";
-import TechStackGrid from '../components/TechStackGrid.astro';
+import TechStackGrid from "../components/TechStackGrid.astro";
+
 const values = [
   {
     icon: FolderSync,
     title: "Building with Purpose",
     description:
-      "I focus on clean architecture and performance. I build my projects from start to finish because I want to understand the whole system. My goal is to make applications that don't just work but are also easy to maintain in the long run.",
+      "I focus on clean architecture and performance. I build my projects from start to finish because I want to understand the whole system.",
   },
   {
     icon: ArrowsUpFromLine,
     title: "Learning by Shipping",
     description:
-      "I don't just watch tutorials. I build real projects instead. I handle everything from the UI design to the backend logic and deployment. I enjoy the challenge of turning a simple idea into a working product.",
+      "I do not just watch tutorials. I build real projects instead and handle everything from UI to backend logic.",
   },
   {
     icon: Braces,
-    title: "Senior-Level Thinking",
+    title: "Senior Level Thinking",
     description:
-      "My goal is to grow beyond the junior level. To do this, I study system design, security, and software architecture. I want to solve problems like an engineer and build reliable software, one project at a time.",
+      "My goal is to grow beyond the junior level by studying system design, security and software architecture.",
   },
 ];
 ---
 
 <MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-      <section class="px-4 sm:px-6 py-16 md:py-24">
-        <div class="mx-auto w-full max-w-6xl">
-			    <div class="hero bg-base-200 min-h-[70vh] md:min-h-[85vh]  pt-0">
- 				    <div class="hero-content text-center">
-   					<div class="max-w-5xl px-4">
-      					<small  class="text-accent">print("Hello, World!")</small>
-	  						<h1 class="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight text-center">
-								Building <span class="text-accent">Digital Experiences</span> with Clean Code
-							  </h1>			
-      						<p class="py-5 text-center text-lg max-w-5xl">
-								I'm a junior full-stack developer. I love building modern web applications and writing clean code. Right now, I'am focusing on React, TypeScript, and backend development to improve my skills every day.
-     						</p>
-							  <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-							  <a class="btn btn-ghost bg-transparent border border-accent text-accent py-7 p-8 text-1xl hover:bg-accent hover:text-black transition-all duration-200" href="/projects">
-								View Projects
-							  </a>
-							  <a class="btn btn-ghost bg-transparent border border-accent text-accent py-7 p-8 text-1xl hover:bg-accent hover:text-black transition-all duration-200" href="/contacts">
-							  	Get In Touch
-							  </a>
-					  </div>
-    			  </div>
-  			  </div>
-		    </div>
-      </section>
+  <!-- HERO -->
+  <Section eyebrow='print("Hello World")' align="center" size="lg">
+    <h1 class="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl lg:text-6xl">
+      Building <span class="text-accent">Digital Experiences</span> with Clean Code
+    </h1>
 
-		  <section class="py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            {values.map((v) => (
-            <div class="relative group">
-                <!-- DaisyUI Card -->
-              <div class="card bg-[#111111] border border-white/10 shadow-sm h-full relative rounded-2xl border border-0.1 border-black hover:border-accent transition-all duration-200">
-                <div class="card-body">
-                  <div class="w-14 h-14 rounded-xl bg-[#e10600]/10 flex items-center justify-center mb-4">
-                    <v.icon className="w-7 h-7 text-[#e10600]" />
-                  </div>
-                    <h3 class="card-title text-2xl">{v.title}</h3>
-                    <p class="text-white/70 leading-relaxed">{v.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <TechStackGrid />
+    <p class="mx-auto mt-6 max-w-2xl text-base text-white/70 md:text-lg">
+      I am a junior full stack developer who enjoys building modern web applications and writing
+      clean code.
+    </p>
+
+    <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+      <Button href="/projects"> View Projects </Button>
+
+      <Button href="/contacts" variant="secondary"> Get In Touch </Button>
+    </div>
+  </Section>
+
+  <!-- VALUES -->
+  <Section align="center" size="md">
+    <div class="text-center">
+      <h1 class="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl lg:text-6xl">
+        How I <span class="text-accent">Build </span>Software
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-base text-white/70 md:text-lg">
+        Principles I follow while building projects.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row"></div>
+    </div>
+
+    <Grid cols={3}>
+      {values.map((v) => <Card icon={v.icon} title={v.title} description={v.description} />)}
+    </Grid>
+  </Section>
+
+  <TechStackGrid />
 </MainLayout>

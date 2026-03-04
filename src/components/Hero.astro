@@ -1,0 +1,69 @@
+---
+const {
+  eyebrow,
+  subtitle,
+  align = "center", // "left" | "center"
+  size = "lg", // "md" | "lg"
+  primaryHref,
+  primaryText,
+  secondaryHref,
+  secondaryText,
+} = Astro.props;
+
+const alignClasses = align === "center" ? "text-center" : "text-left";
+const subtitleAlign = align === "center" ? "mx-auto" : "";
+
+const wrap = size === "lg" ? "py-16 md:py-24" : "py-12 md:py-16";
+const titleSize =
+  size === "lg"
+    ? "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+    : "text-3xl sm:text-4xl md:text-5xl";
+---
+
+<section class={wrap}>
+  <div class={`hero bg-base-200 rounded-2xl min-h-[70vh] md:min-h-[85vh]`}>
+    <div class={`hero-content w-full ${alignClasses}`}>
+      <div class="w-full max-w-3xl">
+        {eyebrow && <small class="text-accent mb-2 block">{eyebrow}</small>}
+
+        <h1 class={`font-bold leading-tight ${titleSize}`}>
+          <slot name="title" />
+        </h1>
+
+        {
+          subtitle && (
+            <p class={`mt-6 max-w-2xl text-base text-white/70 md:text-lg ${subtitleAlign}`}>
+              {subtitle}
+            </p>
+          )
+        }
+
+        {
+          (primaryHref || secondaryHref) && (
+            <div
+              class={`mt-10 flex flex-col gap-4 sm:flex-row ${align === "center" ? "justify-center" : "justify-start"}`}
+            >
+              {primaryHref && primaryText && (
+                <a
+                  href={primaryHref}
+                  class="btn border-accent text-accent hover:bg-accent border px-6 py-3 text-sm transition hover:text-black md:text-base"
+                >
+                  {primaryText}
+                </a>
+              )}
+
+              {secondaryHref && secondaryText && (
+                <a
+                  href={secondaryHref}
+                  class="btn border-accent text-accent hover:bg-accent border px-6 py-3 text-sm transition hover:text-black md:text-base"
+                >
+                  {secondaryText}
+                </a>
+              )}
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

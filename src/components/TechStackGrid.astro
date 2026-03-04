@@ -1,73 +1,128 @@
 ---
 const techStack = {
-  "Frontend": [
-    { name: "Astro", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg", url: "https://astro.build/" },
-    { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", url: "https://react.dev/" },
-    { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", url: "https://tailwindcss.com/" },
-    { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", url: "https://www.typescriptlang.org/" },
-    { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", url: "https://nextjs.org/" },
+  Frontend: [
+    {
+      name: "Astro",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg",
+      url: "https://astro.build/",
+    },
+    {
+      name: "React",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+      url: "https://react.dev/",
+    },
+    {
+      name: "Tailwind",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+      url: "https://tailwindcss.com/",
+    },
+    {
+      name: "TypeScript",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      url: "https://www.typescriptlang.org/",
+    },
+    {
+      name: "Next.js",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+      url: "https://nextjs.org/",
+    },
   ],
-  "Backend": [
-    { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", url: "https://nodejs.org/" },
-    { name: "Hono", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg", url: "https://hono.dev/" },
-    { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", url: "https://www.postgresql.org/" },
-    { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", url: "https://www.mongodb.com/" },
+  Backend: [
+    {
+      name: "Node.js",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      url: "https://nodejs.org/",
+    },
+    {
+      name: "Hono",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
+      url: "https://hono.dev/",
+    },
+    {
+      name: "PostgreSQL",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+      url: "https://www.postgresql.org/",
+    },
+    {
+      name: "MongoDB",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+      url: "https://www.mongodb.com/",
+    },
   ],
   "Tools & DevOps": [
-    { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", url: "https://git-scm.com/" },
-    { name: "GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", url: "https://github.com/calem150" },
-    { name: "Bun, pnm, pnpm", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bun/bun-original.svg", url: "https://bun.sh/" },
-    { name: "Cloudflare", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg", url: "https://www.cloudflare.com/" },
-    { name: "Cloudflare Workers", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflareworkers/cloudflareworkers-original.svg", url: "https://workers.cloudflare.com/" },
+    {
+      name: "Git",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+      url: "https://git-scm.com/",
+    },
+    {
+      name: "GitHub",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+      url: "https://github.com/calem150",
+    },
+    {
+      name: "Bun, pnm, pnpm",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bun/bun-original.svg",
+      url: "https://bun.sh/",
+    },
+    {
+      name: "Cloudflare",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg",
+      url: "https://www.cloudflare.com/",
+    },
+    {
+      name: "Cloudflare Workers",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflareworkers/cloudflareworkers-original.svg",
+      url: "https://workers.cloudflare.com/",
+    },
   ],
 };
 ---
 
-<section class="py-24 px-6">
-  <div class="max-w-7xl mx-auto">
-
+<section class="px-6 py-24">
+  <div class="mx-auto max-w-7xl">
     <!-- Heading -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+    <div class="mb-16 text-center">
+      <h2 class="mb-4 text-4xl font-bold md:text-5xl">
         Tech <span class="text-accent">Stack</span>
       </h2>
-      <p class="text-base-content/70">
-        Technologies I work with and continue to learn
-      </p>
+      <p class="text-base-content/70">Technologies I work with and continue to learn</p>
     </div>
 
     <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {Object.entries(techStack).map(([category, technologies]) => (
-        <div class="card bg-[#111111] border border-transparent hover:border-accent transition-colors">
-          <div class="card-body">
-            <h3 class="card-title text-accent mb-4">{category}</h3>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      {
+        Object.entries(techStack).map(([category, technologies]) => (
+          <div class="card hover:border-accent border border-transparent bg-[#111111] transition-colors">
+            <div class="card-body">
+              <h3 class="card-title text-accent mb-4">{category}</h3>
 
-            <div class="space-y-4">
-              {technologies.map((tech) => (
-                <a
-                  href={tech.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="flex items-center gap-4 group hover:scale-[1.02] transition-transform"
-                >
-                  <div class="w-10 h-10 rounded-lg bg-[#3a3a3a] flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors">
-                    <img
-                      src={tech.logo}
-                      alt={tech.name}
-                      class="w-6 h-6 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
-                    />
-                  </div>
+              <div class="space-y-4">
+                {technologies.map((tech) => (
+                  <a
+                    href={tech.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group flex items-center gap-4 transition-transform hover:scale-[1.02]"
+                  >
+                    <div class="group-hover:bg-accent/10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#3a3a3a] transition-colors">
+                      <img
+                        src={tech.logo}
+                        alt={tech.name}
+                        class="h-6 w-6 object-contain opacity-70 transition-opacity group-hover:opacity-100"
+                      />
+                    </div>
 
-                  <span class="font-medium group-hover:text-accent transition-colors">
-                    {tech.name}
-                  </span>
-                </a>
-              ))}
+                    <span class="group-hover:text-accent font-medium transition-colors">
+                      {tech.name}
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>

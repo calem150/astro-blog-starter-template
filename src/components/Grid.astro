@@ -1,0 +1,21 @@
+---
+interface Props {
+  cols?: 1 | 2 | 3 | 4;
+  gap?: string;
+}
+
+const { cols = 3, gap = "gap-6 md:gap-8" } = Astro.props as Props;
+
+const colMap = {
+  1: "grid-cols-1",
+  2: "grid-cols-1 md:grid-cols-2",
+  3: "grid-cols-1 md:grid-cols-3",
+  4: "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+};
+
+const gridCols = colMap[cols];
+---
+
+<div class={`grid ${gridCols} ${gap}`}>
+  <slot />
+</div>

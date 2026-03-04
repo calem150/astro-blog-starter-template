@@ -1,136 +1,86 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Section from "../components/Section.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Icon } from "astro-icon/components";
-import { Mail, Linkedin, Github, Twitter } from "lucide-react";
 
-interface ContactMethod {
-  icon: string;
-  label: string;
-  value: string;  
-  href: string;
-  description: string;
-}
-
-const contactMethods: ContactMethod[] = [
+const contactMethods = [
   {
     icon: "lucide:mail",
     label: "Email",
     value: "contact@developer.com",
     href: "mailto:contact@developer.com",
-    description: "This is the best way to reach me for job opportunities or project inquiries.",
+    description: "Best way to reach me for opportunities",
   },
   {
     icon: "lucide:linkedin",
     label: "LinkedIn",
     value: "/in/yourprofile",
     href: "https://linkedin.com/in/yourprofile",
-    description: "Connect with me to stay in touch professionally.",
+    description: "Let's connect professionally",
   },
   {
     icon: "lucide:github",
-    label: "@yourhandle",
+    label: "GitHub",
     value: "@yourhandle",
     href: "https://github.com/yourhandle",
-    description: "Explore my code and the projects I am working on.",
+    description: "Check out my code and projects",
   },
   {
     icon: "lucide:twitter",
     label: "Twitter / X",
     value: "@yourhandle",
     href: "https://twitter.com/yourhandle",
-    description: "Follow my journey as a developer and see what I am building.",
+    description: "Follow my dev journey",
   },
 ];
 ---
 
 <MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-<section class="min-h-screen pt-32 pb-24 px-4 sm:px-6">
-  <div class="max-w-5xl mx-auto">
-
-    <!-- Header -->
-    <div class="text-center mb-20">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">
-        Let's <span class="text-accent">Connect</span>
-      </h1>
-
-      <p class="text-white/70 text-lg max-w-2xl mx-auto">
-        I am open to junior developer positions, internships and freelance opportunities. Please contact me if you would like to work together or collaborate on a project.
-      </p>
-    </div>
-
-    <!-- Contact Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-      {contactMethods.map((method) => (
-        <a
-          href={method.href}
-          target={method.label !== "Email" ? "_blank" : undefined}
-          rel={method.label !== "Email" ? "noopener noreferrer" : undefined}
-          class="bg-[#111111] border border-white/5 rounded-xl p-8 hover:border-accent/50 transition-all group"
-        >
-          <div class="flex items-start gap-4">
-            <div class="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-              <Icon name={method.icon} class="w-6 h-6 text-accent" />
-            </div>
-
-            <div class="flex-1">
-              <div class="text-white/60 text-sm mb-1">{method.label}</div>
-
-              <div class="font-bold text-lg mb-2 group-hover:text-accent transition-colors">
-                {method.value}
+  <Section title="Contact" subtitle="Choose the method that works best for you." align="center">
+    <div class="mb-20 grid grid-cols-1 gap-6 md:grid-cols-2">
+      {
+        contactMethods.map((method, index) => (
+          <a
+            href={method.href}
+            target={method.label !== "Email" ? "_blank" : undefined}
+            rel={method.label !== "Email" ? "noopener noreferrer" : undefined}
+            class="contact-card hover:border-accent/50 group rounded-xl border border-white/5 bg-[#111111] p-8 transition-all"
+            style={`animation-delay:${index * 100}ms`}
+          >
+            <div class="flex items-start gap-4">
+              <div class="bg-accent/10 group-hover:bg-accent/20 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg transition-colors">
+                <Icon name={method.icon} class="text-accent h-6 w-6" />
               </div>
 
-              <p class="text-white/60 text-sm">{method.description}</p>
+              <div class="flex-1">
+                <div class="mb-1 text-sm text-white/60">{method.label}</div>
+
+                <div class="group-hover:text-accent mb-2 text-lg font-bold transition-colors">
+                  {method.value}
+                </div>
+
+                <p class="text-sm text-white/60">{method.description}</p>
+              </div>
             </div>
-          </div>
-        </a>
-      ))}
+          </a>
+        ))
+      }
     </div>
+  </Section>
 
-    <!-- CTA Section -->
-    <div class="bg-gradient-to-br from-[#111111] to-[#1a1a1a] border border-accent/30 rounded-2xl p-8 sm:p-12 text-center">
+  <style>
+    .contact-card {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: cardIn 500ms ease forwards;
+    }
 
-      <h2 class="text-3xl font-bold mb-4">
-        Ready to Work Together
-      </h2>
-
-      <p class="text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed">
-        If you have a project idea or would like to talk about opportunities I would be happy to hear from you.
-      </p>
-
-      <div class="flex flex-wrap items-center justify-center gap-4">
-
-        <a
-          href="mailto:contact@developer.com"
-          class="px-8 py-4 bg-accent hover:bg-red-700 text-white rounded-lg font-medium transition-colors inline-flex items-center gap-2"
-        >
-          <Icon name="lucide:mail" class="w-5 h-5" />
-          Send an Email
-        </a>
-
-        <a
-          href="https://linkedin.com/in/yourprofile"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-8 py-4 border-2 border-white/10 hover:border-accent/50 rounded-lg font-medium transition-colors inline-flex items-center gap-2"
-        >
-          <Icon name="lucide:linkedin" class="w-5 h-5" />
-          Connect on LinkedIn
-        </a>
-
-      </div>
-    </div>
-
-    <!-- Availability -->
-    <div class="mt-12 text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-white/5 rounded-full">
-        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-        <span class="text-white/70 text-sm">
-          Currently available for opportunities.
-        </span>
-      </div>
-    </div>
-
-  </div>
-</section>
+    @keyframes cardIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </MainLayout>

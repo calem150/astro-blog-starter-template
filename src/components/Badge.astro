@@ -1,0 +1,19 @@
+---
+interface Props {
+  color?: "default" | "accent" | "success";
+}
+
+const { color = "default" } = Astro.props as Props;
+
+const colors = {
+  default: "bg-[#1a1a1a] border-white/10 text-white",
+  accent: "bg-accent/10 border-accent text-accent",
+  success: "bg-green-500/10 border-green-500 text-green-400",
+};
+
+const style = colors[color];
+---
+
+<span class={`px-3 py-1 text-xs border rounded-md ${style}`}>
+  <slot />
+</span>

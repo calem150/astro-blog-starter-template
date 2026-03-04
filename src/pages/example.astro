@@ -1,0 +1,22 @@
+---
+import PageTemplate from "../templates/PageTemplate.astro";
+import Card from "../components/Card.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+---
+
+<PageTemplate title="About" description="About me">
+  <Card
+    slot="cards"
+    title="Clean Architecture"
+    description="I like building maintainable software."
+  />
+
+  <ProjectCard
+    slot="projects"
+    title="My Portfolio"
+    description="Built with Astro"
+    tech={["Astro", "Tailwind"]}
+    demo="#"
+    github="#"
+  />
+</PageTemplate>
