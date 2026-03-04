@@ -1,7 +1,5 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import MainLayout from "../layouts/MainLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { Waypoints, Zap, FileBracesCorner } from "lucide-react";
 import TechStackGrid from '../components/TechStackGrid.astro';
@@ -27,14 +25,8 @@ const values = [
 ];
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
+<MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <section>
 			<div class="hero bg-base-200 min-h-[85vh] pt-0">
  				<div class="hero-content text-center">
    					<div class="max-w-5xl px-4">
@@ -76,7 +68,5 @@ const values = [
         </div>
       </section>
         <TechStackGrid />
-		</main>
-		  <Footer />
-	</body>
-</html>
+</section>
+</MainLayout>

@@ -1,10 +1,6 @@
 ---
-import style from '../styles/global.css';
-import Layout from "../layouts/BlogPost.astro";
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
+import MainLayout from "../layouts/MainLayout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { FolderSync, ArrowsUpFromLine, Braces } from "lucide-react";
 import TechStackGrid from '../components/TechStackGrid.astro';
 const values = [
@@ -29,17 +25,10 @@ const values = [
 ];
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
+<MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
       <section class="px-4 sm:px-6 py-16 md:py-24">
         <div class="mx-auto w-full max-w-6xl">
-			    <div class="hero bg-base-200 min-h-[85vh] pt-0">
+			    <div class="hero bg-base-200 min-h-[70vh] md:min-h-[85vh]  pt-0">
  				    <div class="hero-content text-center">
    					<div class="max-w-5xl px-4">
       					<small  class="text-accent">print("Hello, World!")</small>
@@ -83,8 +72,4 @@ const values = [
         </div>
       </section>
       <TechStackGrid />
-		</main>
-		  <Footer />
-    </div>
-	</body>
-</html>
+</MainLayout>

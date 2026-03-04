@@ -1,7 +1,5 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Icon } from "astro-icon/components";
 import { Mail, Linkedin, Github, Twitter } from "lucide-react";
@@ -45,14 +43,8 @@ const contactMethods: ContactMethod[] = [
   },
 ];
 ---
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
+
+<MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 <section class="min-h-screen pt-32 pb-24 px-4 sm:px-6">
   <div class="max-w-5xl mx-auto">
 
@@ -141,8 +133,4 @@ const contactMethods: ContactMethod[] = [
 
   </div>
 </section>
-		</main>
-		  <Footer />
-    </div>
-	</body>
-</html>
+</MainLayout>
