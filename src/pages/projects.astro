@@ -2,9 +2,11 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
-import { Code2, Zap, Braces } from "lucide-react";
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Icon } from "astro-icon/components";
+import { AlignVerticalJustifyCenter, SquareChartGantt } from "lucide-react";
 import TechStackGrid from '../components/TechStackGrid.astro';
+
 const featuredProject = {
   title: "Task Manager App",
   description: "A full-stack application for managing tasks and projects.",
@@ -14,32 +16,13 @@ const featuredProject = {
   demoLink: "#",
   githubLink: "#",
 };
-const values = [
-  {
-    icon: Code2,
-    title: "Portfolio Website",
-    description:
-      "This website. Built with Astro, DaisyUI, and TypeScript. Focus: responsive design, clean structure, component system.",
-  },
-  {
-    icon: Zap,
-    title: "Learning by Shipping",
-    description:
-      "I don't just follow tutorials I build real projects. From UI design to backend logic and deployment, I constantly challenge myself to turn ideas into working products.",
-  },
-  {
-    icon: Braces,
-    title: "Growing into Senior Level Thinking",
-    description:
-      "My goal is not just to write code, but to think like an engineer. I study system design, security, and software architecture to grow beyond junior level step by step, project by project.Leveraging cutting-edge technologies to build reliable, future-proof web applications.",
-  },
-];
 const otherProjects = [
   {
     title: "Weather Dashboard",
     description:
       "Weather app showing current conditions and forecasts.",
     tags: ["Astro", "API", "Tailwind"],
+    demoLink: "#",
     githubLink: "#",
   },
   {
@@ -47,6 +30,7 @@ const otherProjects = [
     description:
       "Simple blog platform with markdown support.",
     tags: ["Next.js", "TypeScript", "MongoDB"],
+    demoLink: "#",
     githubLink: "#",
   },
   {
@@ -54,24 +38,39 @@ const otherProjects = [
     description:
       "Basic e-commerce site with product listings.",
     tags: ["React", "Node.js", "Stripe"],
+    demoLink: "#",
     githubLink: "#",
   },
 ];
 
 const learnings = [
   {
-    category: "Architecture & Planning",
-    title: "Structure Early, Save Later",
+    category: "Debugging",
+    title: "Read the error first",
     description:
-      "Starting with a clear folder structure and component hierarchy prevents technical debt.",
-    icon: "🏗️",
+      "Most bugs become clear after carefully reading the error message and the stack trace.",
+    icon: "lucide:bug",
   },
   {
-    category: "Development Philosophy",
-    title: "Simplicity Over Cleverness",
+    category: "Performance",
+    title: "Fast pages matter",
     description:
-      "Clean, readable code beats clever one-liners.",
-    icon: "✨",
+      "Optimizing bundle size and loading speed improves the user experience and keeps applications responsive.",
+    icon: "lucide:gauge",
+  },
+  {
+    category: "Problem Solving",
+    title: "Break problems into smaller parts",
+    description:
+      "Complex features become easier to build when they are divided into small and manageable tasks.",
+    icon: "lucide:puzzle",
+  },
+  {
+    category: "Learning Mindset",
+    title: "Build projects to understand tools",
+    description:
+      "The best way to learn new technologies is by building real projects and solving practical problems.",
+    icon: "lucide:book-open",
   },
 ];
 ---
@@ -140,20 +139,19 @@ const learnings = [
       <div class="flex flex-wrap gap-4">
         <a
           href={featuredProject.demoLink}
-          class="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-red-700 text-white rounded-lg font-medium transition-colors"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-black text-accent border border-accent hover:bg-accent hover:text-white rounded-lg font-medium transition-colors"
         >
           Live Demo
         </a>
 
         <a
           href={featuredProject.githubLink}
-          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/10 hover:border-accent/50 rounded-lg font-medium transition-colors"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-black text-accent border border-accent hover:bg-accent hover:text-white rounded-lg font-medium transition-colors"
         >
-          GitHub
+          Source Code
         </a>
       </div>
     </div>
-
     <!-- Other Projects -->
     <h2 class="text-2xl font-bold mb-8">Other Projects</h2>
 
@@ -172,13 +170,25 @@ const learnings = [
               </span>
             ))}
           </div>
+          <div class="flex flex-wrap gap-3">
+            <a
+              href={project.demoLink}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-accent border border-accent hover:bg-accent hover:text-white font-medium text-sm transition-colors"
+            >
+              Live Demo
+            </a>
 
-          <a
-            href={project.githubLink}
-            class="inline-flex items-center gap-2 text-accent hover:text-red-600 font-medium text-sm transition-colors"
-          >
-            Full Code
-          </a>
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-accent border border-accent hover:bg-accent hover:text-white font-medium text-sm transition-colors"
+            >
+              Source Code
+            </a>
+          </div>
         </div>
       ))}
     </div>
@@ -196,7 +206,7 @@ const learnings = [
       {learnings.map((learning) => (
         <div class="bg-[#111111] border border-white/5 rounded-xl p-6 hover:border-accent/30 transition-colors">
           <div class="flex items-start gap-4">
-            <div class="text-3xl">{learning.icon}</div>
+            <Icon name={learning.icon} class="w-8 h-8 text-accent" />
 
             <div>
               <div class="text-accent text-xs font-bold uppercase tracking-wider mb-2">
@@ -215,10 +225,7 @@ const learnings = [
         </div>
       ))}
     </div>
-
-  </div>
 </section>
-      <TechStackGrid />
 		</main>
 		  <Footer />
     </div>

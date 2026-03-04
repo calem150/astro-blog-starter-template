@@ -1,4 +1,8 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Icon } from "astro-icon/components";
 import { Mail, Linkedin, Github, Twitter } from "lucide-react";
 
@@ -16,32 +20,39 @@ const contactMethods: ContactMethod[] = [
     label: "Email",
     value: "contact@developer.com",
     href: "mailto:contact@developer.com",
-    description: "Best way to reach me for opportunities",
+    description: "This is the best way to reach me for job opportunities or project inquiries.",
   },
   {
     icon: "lucide:linkedin",
     label: "LinkedIn",
     value: "/in/yourprofile",
     href: "https://linkedin.com/in/yourprofile",
-    description: "Let's connect professionally",
+    description: "Connect with me to stay in touch professionally.",
   },
   {
     icon: "lucide:github",
     label: "@yourhandle",
     value: "@yourhandle",
     href: "https://github.com/yourhandle",
-    description: "Check out my code and projects",
+    description: "Explore my code and the projects I am working on.",
   },
   {
     icon: "lucide:twitter",
     label: "Twitter / X",
     value: "@yourhandle",
     href: "https://twitter.com/yourhandle",
-    description: "Follow my dev journey",
+    description: "Follow my journey as a developer and see what I am building.",
   },
 ];
 ---
-
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
 <section class="min-h-screen pt-32 pb-24 px-4 sm:px-6">
   <div class="max-w-5xl mx-auto">
 
@@ -52,8 +63,7 @@ const contactMethods: ContactMethod[] = [
       </h1>
 
       <p class="text-white/70 text-lg max-w-2xl mx-auto">
-        I'm open to junior developer positions, internships, and freelance opportunities.
-        Feel free to reach out if you'd like to collaborate.
+        I am open to junior developer positions, internships and freelance opportunities. Please contact me if you would like to work together or collaborate on a project.
       </p>
     </div>
 
@@ -89,12 +99,11 @@ const contactMethods: ContactMethod[] = [
     <div class="bg-gradient-to-br from-[#111111] to-[#1a1a1a] border border-accent/30 rounded-2xl p-8 sm:p-12 text-center">
 
       <h2 class="text-3xl font-bold mb-4">
-        Ready to Work Together?
+        Ready to Work Together
       </h2>
 
       <p class="text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed">
-        Whether you have a project in mind or want to discuss opportunities —
-        I'd love to hear from you.
+        If you have a project idea or would like to talk about opportunities I would be happy to hear from you.
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-4">
@@ -104,7 +113,7 @@ const contactMethods: ContactMethod[] = [
           class="px-8 py-4 bg-accent hover:bg-red-700 text-white rounded-lg font-medium transition-colors inline-flex items-center gap-2"
         >
           <Icon name="lucide:mail" class="w-5 h-5" />
-          Send Email
+          Send an Email
         </a>
 
         <a
@@ -125,10 +134,15 @@ const contactMethods: ContactMethod[] = [
       <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-white/5 rounded-full">
         <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
         <span class="text-white/70 text-sm">
-          Currently available for opportunities
+          Currently available for opportunities.
         </span>
       </div>
     </div>
 
   </div>
 </section>
+		</main>
+		  <Footer />
+    </div>
+	</body>
+</html>
