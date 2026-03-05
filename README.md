@@ -1,64 +1,259 @@
-# Astro Starter Kit: Blog
+# Astro Template Kit
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/astro-blog-starter-template)
+A modern **Astro + TailwindCSS + DaisyUI** starter template for building reusable website templates.
 
-![Astro Template Preview](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+This project is designed as a **master template system** to quickly create websites such as:
 
-<!-- dash-content-start -->
+- Developer portfolios
+- Agency websites
+- SaaS landing pages
+- Startup landing pages
+- Local business websites
 
-Create a blog with Astro and deploy it on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
+The goal is to maintain a **clean architecture, reusable sections, and fast development workflow**.
 
-Features:
+---
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-- ✅ Built-in Observability logging
+## 🚀 Features
 
-<!-- dash-content-end -->
+- ✅ Astro based static site architecture
+- ✅ TailwindCSS utility styling
+- ✅ DaisyUI component system
+- ✅ Modular section components
+- ✅ Clean layout architecture
+- ✅ Prettier auto formatting
+- ✅ Optimized for reusable templates
+- ✅ Minimal dependencies
 
-## Getting Started
+---
 
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+## 🧱 Tech Stack
+
+This template uses the following technologies:
+
+- **Astro**
+- **TailwindCSS**
+- **DaisyUI**
+- **TypeScript**
+- **Prettier**
+- **Node / Bun**
+
+---
+
+## 📦 Installed Packages
+
+Main packages used in this project:
 
 ```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/astro-blog-starter-template
+astro
+tailwindcss
+daisyui
+@tailwindcss/typography
+prettier
+prettier-plugin-tailwindcss
 ```
 
-A live public deployment of this template is available at [https://astro-blog-starter-template.templates.workers.dev](https://astro-blog-starter-template.templates.workers.dev)
+Install dependencies:
 
-## 🚀 Project Structure
+```bash
+npm install
+```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+or
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+bun install
+```
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🚀 Development
 
-## 🧞 Commands
+Start the development server:
 
-All commands are run from the root of the project, from a terminal:
+```bash
+npm run dev
+```
 
-| Command                           | Action                                           |
-| :-------------------------------- | :----------------------------------------------- |
-| `npm install`                     | Installs dependencies                            |
-| `npm run dev`                     | Starts local dev server at `localhost:4321`      |
-| `npm run build`                   | Build your production site to `./dist/`          |
-| `npm run preview`                 | Preview your build locally, before deploying     |
-| `npm run astro ...`               | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help`         | Get help using the Astro CLI                     |
-| `npm run build && npm run deploy` | Deploy your production site to Cloudflare        |
-| `npm wrangler tail`               | View real-time logs for all Workers              |
+Open your browser:
+
+```
+http://localhost:4321
+```
+
+---
+
+## 📁 Project Structure
+
+```text
+src
+│
+├─ components
+│  ├─ layout
+│  │  ├─ Navbar.astro
+│  │  ├─ Footer.astro
+│  │  └─ PageShell.astro
+│  │
+│  ├─ sections
+│  │  ├─ Hero.astro
+│  │  ├─ Features.astro
+│  │  ├─ CTA.astro
+│  │  └─ Testimonials.astro
+│
+├─ layouts
+│  └─ BaseLayout.astro
+│
+├─ pages
+│  └─ index.astro
+│
+├─ styles
+│  └─ global.css
+│
+└─ assets
+```
+
+---
+
+## 🧩 Architecture
+
+The template follows a **modular component architecture**.
+
+### Layout System
+
+```
+BaseLayout
+ └ PageShell
+     ├ Navbar
+     └ Footer
+```
+
+### Section System
+
+Pages are built by composing reusable UI sections such as:
+
+- Hero
+- Features
+- Services
+- Testimonials
+- FAQ
+- Call To Action
+
+This allows building new templates quickly.
+
+---
+
+## 🎨 Styling
+
+Styling is handled using:
+
+- **TailwindCSS utilities**
+- **DaisyUI components**
+
+Example:
+
+```astro
+<button class="btn btn-accent"> Get Started </button>
+```
+
+Custom CSS should be minimized.
+
+---
+
+## 🧹 Code Formatting
+
+The project uses **Prettier**.
+
+Formatting runs automatically on save.
+
+Example `.prettierrc` configuration:
+
+```json
+{
+  "semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "printWidth": 100
+}
+```
+
+---
+
+## 🧰 Recommended VS Code Extensions
+
+Install these extensions for the best developer experience:
+
+- Astro
+- Tailwind CSS IntelliSense
+- Prettier
+- ESLint
+- Material Icon Theme
+
+---
+
+## 🧱 Creating New Templates
+
+This project is intended to generate multiple website templates.
+
+Planned templates:
+
+1. SaaS Landing Page
+2. Agency Website
+3. Developer Portfolio
+4. Startup Landing Page
+5. Local Business Website
+
+Each template will reuse the same component system.
+
+Example page structure:
+
+```
+Hero
+Features
+Services
+Testimonials
+FAQ
+CTA
+Footer
+```
+
+---
+
+## 🧠 Development Philosophy
+
+This template is designed to be:
+
+- modular
+- reusable
+- fast to extend
+- easy to maintain
+
+Focus on **component reuse instead of rewriting UI**.
+
+---
+
+## 📌 Future Improvements
+
+Possible improvements for the template kit:
+
+- Multiple navbar variants
+- Multiple hero variants
+- Section library
+- Theme switching
+- Component presets
+- CMS integration
+
+---
 
 ## 👀 Want to learn more?
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Astro documentation: https://docs.astro.build
+- TailwindCSS documentation: https://tailwindcss.com
+- DaisyUI documentation: https://daisyui.com
 
-## Credit
+---
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+## Author
+
+Created by **Calem**
+
+This project is part of a personal portfolio and serves as a base for building reusable web templates.
