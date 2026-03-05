@@ -9,14 +9,6 @@ const links = [
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contacts" },
 ];
-
-const themes = [
-  { name: "Dark", value: "black", color: "#e11d48" },
-  { name: "Light", value: "light", color: "#e5e5e5" },
-  { name: "Dracula", value: "dracula", color: "#bd93f9" },
-  { name: "Synthwave", value: "synthwave", color: "#ff00ff" },
-  { name: "Night", value: "night", color: "#1f2937" },
-];
 ---
 
 <Scrolltop />
@@ -100,11 +92,11 @@ const themes = [
 
         <!-- Language -->
 
-        <div class="join mr-2">
+        <div class="join mr-2 gap-1">
           <a
             href="/"
             class:list={[
-              "btn btn-sm join-item",
+              "btn btn-sm join-item text-accent bg-transparent",
               !path.startsWith("/de") ? "btn-accent" : "btn-ghost",
             ]}
           >
@@ -114,7 +106,7 @@ const themes = [
           <a
             href="/de"
             class:list={[
-              "btn btn-sm join-item",
+              "btn btn-sm join-item text-accent border-accent bg-transparent",
               path.startsWith("/de") ? "btn-accent" : "btn-ghost",
             ]}
           >
@@ -123,222 +115,212 @@ const themes = [
         </div>
 
         <!-- Theme Dropdown -->
+        <label class="swap swap-rotate">
+          <!-- Theme toggle -->
+          <input type="checkbox" class="theme-controller" value="synthwave" />
 
-        <div class="dropdown dropdown-end">
-          <button tabindex="0" class="btn btn-ghost btn-sm"> 🌙 </button>
-
-          <ul
-            tabindex="0"
-            class="dropdown-content menu bg-base-200 rounded-box z-1 mt-2 w-44 p-2 shadow"
+          <!-- Sun (Light Mode) -->
+          <svg
+            class="swap-off h-10 w-10 fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
           >
-            {
-              themes.map((theme) => (
-                <li>
-                  <button
-                    class="flex items-center justify-between"
-                    data-theme-set={theme.value}
-                  >
-                    <span>{theme.name}</span>
+            <path
+              d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"
+            ></path>
+          </svg>
 
-                    <span
-                      class="h-3 w-3 rounded-full"
-                      style={`background:${theme.color}`}
-                    />
-                  </button>
-                </li>
-              ))
-            }
-          </ul>
+          <!-- Moon (Dark Mode) -->
+          <svg
+            class="swap-on h-10 w-10 fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"
+            ></path>
+          </svg>
+        </label>
+
+        <!-- Mobile button -->
+
+        <div class="navbar-end lg:hidden">
+          <label for="nav-drawer" class="btn btn-ghost">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </label>
         </div>
       </div>
 
-      <!-- Mobile button -->
+      <!-- ======================= -->
+      <!-- MOBILE DRAWER -->
+      <!-- ======================= -->
 
-      <div class="navbar-end lg:hidden">
-        <label for="nav-drawer" class="btn btn-ghost">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </label>
+      <div class="drawer-side z-100">
+        <label for="nav-drawer" class="drawer-overlay"></label>
+
+        <aside class="menu bg-base-100 min-h-full w-72 p-6">
+          <div class="text-accent mb-6 text-lg font-bold">Navigation</div>
+
+          {
+            links.map((link) => {
+              const active = path === link.href;
+
+              return (
+                <li>
+                  <a
+                    href={link.href}
+                    data-close-drawer
+                    class:list={[
+                      "text-base transition",
+                      "hover:text-accent",
+                      active && "text-accent font-semibold",
+                    ]}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              );
+            })
+          }
+
+          <div class="divider"></div>
+
+          <!-- Language -->
+
+          <div class="flex gap-2">
+            <a
+              href="/"
+              class:list={[
+                "btn btn-sm",
+                !path.startsWith("/de") ? "btn-accent" : "btn-ghost",
+              ]}
+            >
+              EN
+            </a>
+
+            <a
+              href="/de"
+              class:list={[
+                "btn btn-sm",
+                path.startsWith("/de") ? "btn-accent" : "btn-ghost",
+              ]}
+            >
+              DE
+            </a>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- ======================= -->
+          <!-- COMMAND PALETTE -->
+          <!-- ======================= -->
+
+          <dialog id="command_palette" class="modal">
+            <div class="modal-box">
+              <h3 class="mb-4 text-lg font-bold">Quick Navigation</h3>
+
+              <ul class="menu">
+                {
+                  links.map((link) => (
+                    <li>
+                      <a href={link.href}>{link.name}</a>
+                    </li>
+                  ))
+                }
+              </ul>
+
+              <div class="modal-action">
+                <form method="dialog">
+                  <button class="btn"> Close </button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+
+          <script is:inline>
+            // Theme system
+
+            document.addEventListener("DOMContentLoaded", () => {
+              const toggle = document.querySelector(".theme-controller");
+              const saved = localStorage.getItem("theme");
+
+              if (saved === "black") {
+                toggle.checked = true;
+              }
+
+              toggle.addEventListener("change", () => {
+                const theme = toggle.checked ? "black" : "light";
+
+                localStorage.setItem("theme", theme);
+                document.documentElement.setAttribute("data-theme", theme);
+              });
+            });
+            const saved = localStorage.getItem("theme");
+
+            if (saved) {
+              setTheme(saved);
+            } else {
+              const prefersDark = window.matchMedia(
+                "(prefers-color-scheme: dark)",
+              ).matches;
+
+              setTheme(prefersDark ? "black" : "light");
+            }
+
+            // Drawer close
+
+            document.querySelectorAll("[data-close-drawer]").forEach((link) => {
+              link.addEventListener("click", () => {
+                document.getElementById("nav-drawer").checked = false;
+              });
+            });
+
+            // Command palette
+
+            document.addEventListener("keydown", (e) => {
+              if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+                e.preventDefault();
+
+                document.getElementById("command_palette").showModal();
+              }
+            });
+
+            // Navbar glow
+
+            const navbarGlow = document.getElementById("navbar-glow");
+
+            const handleNavbarGlow = () => {
+              if (!navbarGlow) return;
+
+              if (window.scrollY > 40) {
+                navbarGlow.classList.remove("opacity-0");
+                navbarGlow.classList.add("opacity-100");
+              } else {
+                navbarGlow.classList.remove("opacity-100");
+                navbarGlow.classList.add("opacity-0");
+              }
+            };
+
+            window.addEventListener("scroll", handleNavbarGlow, {
+              passive: true,
+            });
+
+            handleNavbarGlow();
+          </script>
+        </aside>
       </div>
     </header>
   </div>
-
-  <!-- ======================= -->
-  <!-- MOBILE DRAWER -->
-  <!-- ======================= -->
-
-  <div class="drawer-side z-100">
-    <label for="nav-drawer" class="drawer-overlay"></label>
-
-    <aside class="menu bg-base-100 min-h-full w-72 p-6">
-      <div class="text-accent mb-6 text-lg font-bold">Navigation</div>
-
-      {
-        links.map((link) => {
-          const active = path === link.href;
-
-          return (
-            <li>
-              <a
-                href={link.href}
-                data-close-drawer
-                class:list={[
-                  "text-base transition",
-                  "hover:text-accent",
-                  active && "text-accent font-semibold",
-                ]}
-              >
-                {link.name}
-              </a>
-            </li>
-          );
-        })
-      }
-
-      <div class="divider"></div>
-
-      <!-- Language -->
-
-      <div class="flex gap-2">
-        <a
-          href="/"
-          class:list={[
-            "btn btn-sm",
-            !path.startsWith("/de") ? "btn-accent" : "btn-ghost",
-          ]}
-        >
-          EN
-        </a>
-
-        <a
-          href="/de"
-          class:list={[
-            "btn btn-sm",
-            path.startsWith("/de") ? "btn-accent" : "btn-ghost",
-          ]}
-        >
-          DE
-        </a>
-      </div>
-
-      <div class="divider"></div>
-
-      <!-- Themes -->
-
-      <div class="flex flex-col gap-2">
-        {
-          themes.map((theme) => (
-            <button
-              class="btn btn-sm justify-start"
-              data-theme-set={theme.value}
-            >
-              {theme.name}
-            </button>
-          ))
-        }
-      </div>
-    </aside>
-  </div>
 </div>
-
-<!-- ======================= -->
-<!-- COMMAND PALETTE -->
-<!-- ======================= -->
-
-<dialog id="command_palette" class="modal">
-  <div class="modal-box">
-    <h3 class="mb-4 text-lg font-bold">Quick Navigation</h3>
-
-    <ul class="menu">
-      {
-        links.map((link) => (
-          <li>
-            <a href={link.href}>{link.name}</a>
-          </li>
-        ))
-      }
-    </ul>
-
-    <div class="modal-action">
-      <form method="dialog">
-        <button class="btn"> Close </button>
-      </form>
-    </div>
-  </div>
-</dialog>
-
-<script is:inline>
-  // Theme system
-
-  const setTheme = (theme) => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  };
-
-  document.querySelectorAll("[data-theme-set]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      setTheme(btn.dataset.themeSet);
-    });
-  });
-
-  const saved = localStorage.getItem("theme");
-
-  if (saved) {
-    setTheme(saved);
-  } else {
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-
-    setTheme(prefersDark ? "black" : "light");
-  }
-
-  // Drawer close
-
-  document.querySelectorAll("[data-close-drawer]").forEach((link) => {
-    link.addEventListener("click", () => {
-      document.getElementById("nav-drawer").checked = false;
-    });
-  });
-
-  // Command palette
-
-  document.addEventListener("keydown", (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-      e.preventDefault();
-
-      document.getElementById("command_palette").showModal();
-    }
-  });
-
-  // Navbar glow
-
-  const navbarGlow = document.getElementById("navbar-glow");
-
-  const handleNavbarGlow = () => {
-    if (!navbarGlow) return;
-
-    if (window.scrollY > 40) {
-      navbarGlow.classList.remove("opacity-0");
-      navbarGlow.classList.add("opacity-100");
-    } else {
-      navbarGlow.classList.remove("opacity-100");
-      navbarGlow.classList.add("opacity-0");
-    }
-  };
-
-  window.addEventListener("scroll", handleNavbarGlow, { passive: true });
-
-  handleNavbarGlow();
-</script>
