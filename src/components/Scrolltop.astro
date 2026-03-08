@@ -7,7 +7,7 @@
   href="#top"
   id="scrollTopBtn"
   aria-label="Back to top"
-  class="sm:hover:border-accent active:border-accent focus-visible:ring-accent pointer-events-none fixed right-6 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-white opacity-0 shadow-lg transition-all focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none active:scale-95"
+  class="sm:hover:border-accent active:border-accent focus-visible:ring-accent pointer-events-none fixed right-6 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-white opacity-0 shadow-lg transition-opacity duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none active:scale-95"
 >
   <svg
     aria-hidden="true"
@@ -23,28 +23,21 @@
 </a>
 
 <script is:inline>
-  window.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("scrollTopBtn");
-    if (!btn) return;
+  const btn = document.getElementById("scrollTopBtn");
 
-    const toggle = () => {
+  if (btn) {
+    function toggleButton() {
       if (window.scrollY > 300) {
-        btn.classList.remove("opacity-0", "pointer-events-none");
-        btn.classList.add("opacity-100");
+        btn.style.opacity = "1";
+        btn.style.pointerEvents = "auto";
       } else {
-        btn.classList.add("opacity-0", "pointer-events-none");
-        btn.classList.remove("opacity-100");
+        btn.style.opacity = "0";
+        btn.style.pointerEvents = "none";
       }
-    };
+    }
 
-    toggle();
-    window.addEventListener("scroll", toggle, { passive: true });
-  });
-</script>
+    window.addEventListener("scroll", toggleButton, { passive: true });
 
-<style>
-  /* Optional: smooth scroll globally, falls du es nicht schon hast */
-  :global(html) {
-    scroll-behavior: smooth;
+    toggleButton();
   }
-</style>
+</script>
