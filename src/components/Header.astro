@@ -73,59 +73,6 @@ const links = [
             })
           }
         </ul>
-
-        <!-- Language -->
-
-        <div class="join mr-2">
-          <a
-            href="/"
-            class:list={[
-              "btn btn-sm join-item",
-              !path.startsWith("/de") ? "btn-accent" : "btn-ghost",
-            ]}
-          >
-            EN
-          </a>
-
-          <a
-            href="/de"
-            class:list={[
-              "btn btn-sm join-item",
-              path.startsWith("/de") ? "btn-accent" : "btn-ghost",
-            ]}
-          >
-            DE
-          </a>
-        </div>
-
-        <!-- Theme Dropdown -->
-
-        <div class="dropdown dropdown-end">
-          <button tabindex="0" class="btn btn-ghost btn-sm"> 🌙 </button>
-
-          <ul
-            tabindex="0"
-            class="dropdown-content menu bg-base-200 rounded-box z-1 mt-2 w-44 p-2 shadow"
-          >
-            {
-              themes.map((theme) => (
-                <li>
-                  <button
-                    class="flex items-center justify-between"
-                    data-theme-set={theme.value}
-                  >
-                    <span>{theme.name}</span>
-
-                    <span
-                      class="h-3 w-3 rounded-full"
-                      style={`background:${theme.color}`}
-                    />
-                  </button>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
       </div>
 
       <!-- Mobile button -->
@@ -184,137 +131,15 @@ const links = [
 
       <div class="divider"></div>
 
-      <!-- Language -->
+      <script is:inline>
+        // Drawer close
 
-      <div class="flex gap-2">
-        <a
-          href="/"
-          class:list={[
-            "btn btn-sm",
-            !path.startsWith("/de") ? "btn-accent" : "btn-ghost",
-          ]}
-        >
-          EN
-        </a>
-
-        <a
-          href="/de"
-          class:list={[
-            "btn btn-sm",
-            path.startsWith("/de") ? "btn-accent" : "btn-ghost",
-          ]}
-        >
-          DE
-        </a>
-      </div>
-
-      <div class="divider"></div>
-
-      <!-- Themes -->
-
-      <div class="flex flex-col gap-2">
-        {
-          themes.map((theme) => (
-            <button
-              class="btn btn-sm justify-start"
-              data-theme-set={theme.value}
-            >
-              {theme.name}
-            </button>
-          ))
-        }
-      </div>
+        document.querySelectorAll("[data-close-drawer]").forEach((link) => {
+          link.addEventListener("click", () => {
+            document.getElementById("nav-drawer").checked = false;
+          });
+        });
+      </script>
     </aside>
   </div>
 </div>
-
-<!-- ======================= -->
-<!-- COMMAND PALETTE -->
-<!-- ======================= -->
-
-<dialog id="command_palette" class="modal">
-  <div class="modal-box">
-    <h3 class="mb-4 text-lg font-bold">Quick Navigation</h3>
-
-    <ul class="menu">
-      {
-        links.map((link) => (
-          <li>
-            <a href={link.href}>{link.name}</a>
-          </li>
-        ))
-      }
-    </ul>
-
-    <div class="modal-action">
-      <form method="dialog">
-        <button class="btn"> Close </button>
-      </form>
-    </div>
-  </div>
-</dialog>
-
-<script is:inline>
-  // Theme system
-
-  const setTheme = (theme) => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  };
-
-  document.querySelectorAll("[data-theme-set]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      setTheme(btn.dataset.themeSet);
-    });
-  });
-
-  const saved = localStorage.getItem("theme");
-
-  if (saved) {
-    setTheme(saved);
-  } else {
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-
-    setTheme(prefersDark ? "black" : "light");
-  }
-
-  // Drawer close
-
-  document.querySelectorAll("[data-close-drawer]").forEach((link) => {
-    link.addEventListener("click", () => {
-      document.getElementById("nav-drawer").checked = false;
-    });
-  });
-
-  // Command palette
-
-  document.addEventListener("keydown", (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-      e.preventDefault();
-
-      document.getElementById("command_palette").showModal();
-    }
-  });
-
-  // Navbar glow
-
-  const navbarGlow = document.getElementById("navbar-glow");
-
-  const handleNavbarGlow = () => {
-    if (!navbarGlow) return;
-
-    if (window.scrollY > 40) {
-      navbarGlow.classList.remove("opacity-0");
-      navbarGlow.classList.add("opacity-100");
-    } else {
-      navbarGlow.classList.remove("opacity-100");
-      navbarGlow.classList.add("opacity-0");
-    }
-  };
-
-  window.addEventListener("scroll", handleNavbarGlow, { passive: true });
-
-  handleNavbarGlow();
-</script>
